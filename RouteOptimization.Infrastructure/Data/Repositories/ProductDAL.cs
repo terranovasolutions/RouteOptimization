@@ -12,6 +12,11 @@ namespace RouteOptimization.Infrastructure
         {
 
         }
+
+        public void GetByName()
+        {
+
+        }
     }
 
 }
