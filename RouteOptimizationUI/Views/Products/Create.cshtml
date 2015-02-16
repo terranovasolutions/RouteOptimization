@@ -1,0 +1,170 @@
+﻿@model RouteOptimization.Infrastructure.ProductViewModel
+
+<body class="">
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <header id="header">
+        <div id="logo-group">
+            <span id="logo"> <img src="~/Content/Images/tnalogoblack.png" alt="TN Analytics"> </span>
+        </div>
+    </header><div class="jarviswidget" id="wid-id-3" data-widget-editbutton="false" data-widget-custombutton="false">
+        <!-- widget options:
+            usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+            data-widget-colorbutton="false"
+            data-widget-editbutton="false"
+            data-widget-togglebutton="false"
+            data-widget-deletebutton="false"
+            data-widget-fullscreenbutton="false"
+            data-widget-custombutton="false"
+            data-widget-collapsed="true"
+            data-widget-sortable="false"
+
+        -->
+        <header>
+            <span class="widget-icon"> <i class="fa fa-edit"></i> </span>
+            <h2>Product Form:</h2>
+
+        </header>
+
+        <!-- widget div-->
+        <div>
+
+            <!-- widget edit box -->
+            <div class="jarviswidget-editbox">
+                <!-- This area used as dropdown edit box -->
+
+            </div>
+            <!-- end widget edit box -->
+            <!-- widget content -->
+            <div class="widget-body no-padding">
+
+
+
+
+
+                            @using (Html.BeginForm(FormMethod.Post))
+                            {
+                                @Html.ValidationSummary(true)
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <label class="input">
+                                            <i class="icon-append fa fa-user"></i>
+                                            @Html.EditorFor(model => model.Product.Name, new { @class = "text-label", @placeholder = "Password" })
+                                            @Html.ValidationMessageFor(model => model.Product.Name)
+                                        </label>
+                                    </section>
+                                    <section class="col col-6">
+                                        <label class="input">
+                                            <i class="icon-append fa fa-briefcase"></i>
+                                            @Html.EditorFor(model => model.Product.ProductNumber, new { htmlAttributes = new { @placeholder = "Product Number" } })
+                                            @Html.ValidationMessageFor(model => model.Product.ProductNumber)
+                                        </label>
+                                    </section>
+                                </div>
+
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <label class="input">
+                                            <i class="icon-append fa fa-envelope-o"></i>
+                                            @Html.EditorFor(model => model.Product.ListPrice, new { htmlAttributes = new { @placeholder = "List Price" } })
+                                            @Html.ValidationMessageFor(model => model.Product.ListPrice)
+                                        </label>
+                                    </section>
+                                    <section class="col col-6">
+                                        <label class="input">
+                                            <i class="icon-append fa fa-phone"></i>
+                                            @Html.EditorFor(model => model.Product.Size, new { htmlAttributes = new { @placeholder = "Size" } })
+                                            @Html.ValidationMessageFor(model => model.Product.Size)
+                                        </label>
+                                    </section>
+                                </div>
+
+                                <div class="row">
+                                    <section class="col col-6">
+                                        <label class="input">
+                                            <i class="icon-append fa fa-envelope-o"></i>
+                                            @Html.EditorFor(model => model.Product.Weight, new { htmlAttributes = new { @placeholder = "Weight" } })
+                                            @Html.ValidationMessageFor(model => model.Product.Weight)
+                                        </label>
+                                    </section>
+                                </div>
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            }
+                        </div>
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+
+
+
+
+
+
+
+
+
+
+            @*@using (Html.BeginForm())
+                {
+                                    @Html.AntiForgeryToken()
+
+                                    <div class="form-horizontal">
+                                        <h4>Product</h4>
+                                        <hr />
+                                        @Html.ValidationSummary(true)
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @placeholder = "Product Name" } })
+                                                @Html.ValidationMessageFor(model => model.Name)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.ProductNumber, new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.ProductNumber)
+                                                @Html.ValidationMessageFor(model => model.ProductNumber)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.ListPrice, new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.ListPrice)
+                                                @Html.ValidationMessageFor(model => model.ListPrice)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Size, new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Size)
+                                                @Html.ValidationMessageFor(model => model.Size)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Weight, new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Weight)
+                                                @Html.ValidationMessageFor(model => model.Weight)
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Create" class="btn btn-default" />
+                                            </div>
+                                        </div>
+                                    </div>
+                }
+                            </div>*@
+            @Html.Partial("ProductList", Model.AllProducts.ToList())
+</body>
