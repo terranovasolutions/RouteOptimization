@@ -9,10 +9,11 @@ namespace RouteOptimizationUI.Models
     {
         public int StoreID { get; set; }
         public string Name { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
-        public string Contact { get; set; }
+        public string StoreNumber { get; set; }
+        public int RetailerID { get; set; }
+        public string EmailID { get; set; }
         public string Phone { get; set; }
+        public int AddressID { get; set; }
+        
     }
 }

@@ -25,7 +25,7 @@ namespace RouteOptimizationUI.Controllers
    
             var model =
                 from r in _storeslist
-                orderby r.City
+               
                 select r;
 
             return View(model);
@@ -112,22 +112,19 @@ namespace RouteOptimizationUI.Controllers
         {
             new Store{
                 StoreID = 1, 
-                Name = "Walmart1",
-                City = "London",
-                Country = "Canada"        
+                Name = "Walmart1"
+                       
             },
              new Store{
                    StoreID = 2, 
-                Name = "LobLaws",
-                City = "Toronto",
-                Country = "Canada" 
+                Name = "LobLaws"
+              
         
             },
              new Store{
                    StoreID = 3, 
-                Name = "Asian",
-                City = "Orangeville",
-                Country = "Canada" 
+                Name = "Asian"
+                
         
             }
 
