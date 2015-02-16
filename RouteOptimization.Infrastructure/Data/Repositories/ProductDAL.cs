@@ -56,7 +56,12 @@ namespace RouteOptimization.Infrastructure
                           select x).FirstOrDefault();
               db.Products.Remove(temp);
               db.SaveChanges();
-          }
+        }
+
+        public void GetByName()
+        {
+
+        }
     }
 
 }
