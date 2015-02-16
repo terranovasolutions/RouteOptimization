@@ -34,7 +34,7 @@ namespace RouteOptimization.Infrastructure
             }
         }
 
-        public string AddorUpdate(Product product)
+        public IEnumerable<Product> AddorUpdate(Product product)
         {
             if (product.ProductID > 0)
             {
@@ -46,7 +46,7 @@ namespace RouteOptimization.Infrastructure
                 db.Products.Add(product);
             }
             db.SaveChanges();
-            return "";
+            return db.Products.ToList();
         }
 
         public void Delete(int id)

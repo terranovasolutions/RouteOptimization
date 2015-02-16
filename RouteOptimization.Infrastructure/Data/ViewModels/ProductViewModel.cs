@@ -10,6 +10,6 @@ namespace RouteOptimization.Infrastructure
     {
         public Product Product { get; set; }
 
-        public List<Product> AllProducts { get; set; }
+        public IEnumerable<Product> AllProducts { get; set; }
     }
 }
