@@ -1,0 +1,66 @@
+﻿@model RouteOptimization.Infrastructure.Product
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Product</h4>
+    	<hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductNumber)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ProductNumber)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ListPrice)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ListPrice)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Size)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Size)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Weight)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Weight)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

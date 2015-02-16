@@ -3,29 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using RouteOptimizationUI.Models;
+using RouteOptimization.Infrastructure;
 
 namespace RouteOptimizationUI.Controllers
-{
-
-     
+{   
     public class ProductController : Controller
     {
 
-        static List<Product> _prodlist = new List<Product> { };
-       
-        // GET: Product
-       // [HttpPost]
-        public ActionResult Index(Product prod)
+        public ActionResult Index(ProductDAL repository)
         {
-            _prodlist.Add(prod);
+            return View(repository.ListProducts());
+        }
 
 
-            var model =
-                from r in _prodlist
-                select r;
 
-            return View("Index", model);
+        
+        // GET: Product
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index([Bind(Include = "ProductID,Name,ProductNumber,ListPrice,Size,Weight")] Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                ProductDAL create = new ProductDAL();
+                create.AddorUpdate(product);
+                return View("Index", create.ListProducts());
+            }
+
+            return View(product);
+            
             
         }
 
@@ -36,27 +42,24 @@ namespace RouteOptimizationUI.Controllers
         }
 
         // GET: Product/Create
-        public ActionResult Create()
+        public ActionResult Create(ProductDAL product)
         {
-
-            return View();
-            
+            return View(product.ListProducts());
         }
 
         // POST: Product/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include="ProductID,Name,ProductNumber,ListPrice,Size,Weight")] Product product)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                ProductDAL create = new ProductDAL();
+                create.AddorUpdate(product);
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(product);
         }
 
         // GET: Product/Edit/5

@@ -131,3 +131,7 @@ C:\Users\sahil\Source\Repos\RouteOptimization\RouteOptimizationUI\bin\RouteOptim
 C:\Users\sahil\Source\Repos\RouteOptimization\RouteOptimizationUI\bin\RouteOptimization.Infrastructure.dll
 C:\Users\sahil\Source\Repos\RouteOptimization\RouteOptimizationUI\bin\RouteOptimization.Core.pdb
 C:\Users\sahil\Source\Repos\RouteOptimization\RouteOptimizationUI\bin\RouteOptimization.Infrastructure.pdb
+C:\Users\sahil\Source\Repos\RouteOptimization\RouteOptimizationUI\bin\EntityFramework.dll
+C:\Users\sahil\Source\Repos\RouteOptimization\RouteOptimizationUI\bin\EntityFramework.SqlServer.dll
+C:\Users\sahil\Source\Repos\RouteOptimization\RouteOptimizationUI\bin\EntityFramework.xml
+C:\Users\sahil\Source\Repos\RouteOptimization\RouteOptimizationUI\bin\EntityFramework.SqlServer.xml

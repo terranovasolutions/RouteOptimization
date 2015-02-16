@@ -6,14 +6,13 @@ using System.Web;
 namespace RouteOptimizationUI.Models
 {
     public class Product
-    { 
-
+    {
+       public Int32 productId { get; set; }
        public string productName { get; set; }
-       public string productId { get; set; }
-       public string price { get; set; }
-       public string description { get; set; }
-       public string companyName { get; set; }
-       public string productType { get; set; }
+       public string productNumber { get; set; }
+       public double price { get; set; }
+       public double size { get; set; }
+       public double weight { get; set; }
     }
 
 }
