@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="06a7bdb245d047e3afa8b21581f286b7" Name="Diagram1">
+        <EntityTypeShape EntityType="RouteOptimizationDBModel.Address" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RouteOptimizationDBModel.City" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RouteOptimizationDBModel.Country" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RouteOptimizationDBModel.Product" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RouteOptimizationDBModel.Province" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RouteOptimizationDBModel.Retailer" Width="1.5" PointX="9.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RouteOptimizationDBModel.Store" Width="1.5" PointX="12" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RouteOptimizationDBModel.User" Width="1.5" PointX="5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="RouteOptimizationDBModel.UserType" Width="1.5" PointX="2.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="RouteOptimizationDBModel.FK_Address_City" ManuallyRouted="false" />
+        <AssociationConnector Association="RouteOptimizationDBModel.FK_Address_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="RouteOptimizationDBModel.FK_Address_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="RouteOptimizationDBModel.FK_Retailer_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="RouteOptimizationDBModel.FK_Store_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="RouteOptimizationDBModel.FK_City_Province" ManuallyRouted="false" />
+        <AssociationConnector Association="RouteOptimizationDBModel.FK_Province_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="RouteOptimizationDBModel.FK_Store_Retailer" ManuallyRouted="false" />
+        <AssociationConnector Association="RouteOptimizationDBModel.FK_User_UserType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

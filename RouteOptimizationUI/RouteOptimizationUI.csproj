@@ -115,19 +115,27 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\plugin\ie-placeholder\" />
+    <Folder Include="Views\Retailertry\" />
+    <Folder Include="Views\Retailer\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FieldEmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RetailerController.cs" />
+    <Compile Include="Controllers\RetailerstryController.cs" />
+    <Compile Include="Controllers\RetailertryController.cs" />
     <Compile Include="Controllers\StoresController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FieldEmployee.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\RouteOptimizationUIContext.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1295,12 +1303,13 @@
     <Content Include="Views\Product\_Product.cshtml" />
     <Content Include="Views\Stores\_Stores.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RouteOptimization.Core\RouteOptimization.Core.csproj">
-      <Project>{1f7e8e23-6efa-4920-afcb-99f71bcd6fea}</Project>
-      <Name>RouteOptimization.Core</Name>
-    </ProjectReference>
+    <Content Include="Views\FieldEmployee\FieldEmployeeList.cshtml" />
+    <Content Include="Views\FieldEmployee\Index.cshtml" />
+    <Content Include="Views\Retailerstry\Create.cshtml" />
+    <Content Include="Views\Retailerstry\Delete.cshtml" />
+    <Content Include="Views\Retailerstry\Details.cshtml" />
+    <Content Include="Views\Retailerstry\Edit.cshtml" />
+    <Content Include="Views\Retailerstry\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -1308,6 +1317,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RouteOptimization.Infrastructure\RouteOptimization.Infrastructure.csproj">
+      <Project>{c80fae00-9ae2-4910-84d3-39dd5a68f4ef}</Project>
+      <Name>RouteOptimization.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
