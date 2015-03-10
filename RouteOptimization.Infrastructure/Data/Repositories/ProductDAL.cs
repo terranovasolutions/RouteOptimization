@@ -8,9 +8,49 @@ namespace RouteOptimization.Infrastructure
 {
     public class ProductDAL
     {
-        public void GetAllProducts()
+        RouteOptimizationDBEntities db = new RouteOptimizationDBEntities();
+        public IEnumerable<Product> ListProducts()
         {
+            return db.Products.ToList();
+        }
 
+        public Product GetProductById(int productId)
+        {
+            var result = (from product in db.Products
+                          where product.ProductID == productId
+                          select product).FirstOrDefault<Product>();
+            if (result != null)
+            {
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public IEnumerable<Product> AddorUpdate(Product product)
+        {
+            if (product.ProductID > 0)
+            {
+                Product pid = this.GetProductById(product.ProductID);
+                db.Entry(pid).CurrentValues.SetValues(product);
+            }
+            else
+            {
+                db.Products.Add(product);
+            }
+            db.SaveChanges();
+            return db.Products.ToList();
+        }
+
+        public void Delete(int id)
+        {
+            var temp = (from x in db.Products
+                        where x.ProductID == id
+                        select x).FirstOrDefault();
+            db.Products.Remove(temp);
+            db.SaveChanges();
         }
 
         public void GetByName()
