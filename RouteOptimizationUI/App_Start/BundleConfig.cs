@@ -10,6 +10,8 @@ namespace RouteOptimizationUI
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/libs/jquery-2.0.2.min.js",
+                        "~/Scripts/libs/jquery-2.1.1.min.js",
+                        "~/Scripts/libs/jquery-2.1.3.min.js",
                         "~/Scripts/libs/jquery-ui-1.10.3.min.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

@@ -13,7 +13,6 @@ namespace RouteOptimization.Core
 
         public void GetAllProducts()
         {
-            productDAL.GetAllProducts();
         }
     }
 }

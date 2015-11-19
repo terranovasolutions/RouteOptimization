@@ -1,106 +1,111 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using RouteOptimizationUI.Models;
+using RouteOptimization.Infrastructure;
 
 namespace RouteOptimizationUI.Controllers
-{
-
-     
+{     
     public class ProductController : Controller
     {
-
-        static List<Product> _prodlist = new List<Product> { };
-       
-        // GET: Product
-       // [HttpPost]
-        public ActionResult Index(Product prod)
+        private RouteOptimizationDBEntities db = new RouteOptimizationDBEntities();
+        // GET: /Products/
+        public ActionResult Index(ProductViewModel product)
         {
-            _prodlist.Add(prod);
+            ProductDAL pd = new ProductDAL();
+            product.AllProducts = pd.ListProducts();
+            return View(product);
+        }
+
+        
+        public ActionResult GetProductList()
+        {
+            ProductViewModel product = new ProductViewModel();
+            ProductDAL pd = new ProductDAL();
+            product.AllProducts = pd.ListProducts();
+            return PartialView("_Product",product.AllProducts.ToList());
+        }
 
 
-            var model =
-                from r in _prodlist
-                select r;
+        //public ActionResult Create()
+        //{
+        //    ProductViewModel product = new ProductViewModel();
+        //    ProductDAL create = new ProductDAL();
+        //    create.AddorUpdate(prod);
+        //    product.AllProducts = create.ListProducts();
+        //    return PartialView("_Product",product);
+        //}
 
-            return View("Index", model);
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "ProductID,Name,ProductNumber,ListPrice,Size,Weight")] Product product)
+        //{
+        //    ProductDAL create = new ProductDAL();
+        //    create.AddorUpdate(product);
+        //    return RedirectToAction("Index");
+        //}
+
+        public ActionResult Edit(String ProductID)
+        {
+            ProductDAL data = new ProductDAL();
+            ProductViewModel prod = new ProductViewModel();
+            prod.Product = data.GetProductById(Convert.ToInt32(ProductID));
+            if(Request.IsAjaxRequest())
+            {
+                return PartialView("_ProductForm", prod.Product);
+            }
+            else
+            {
+                return PartialView("_ProductForm", prod.Product);
+            }
             
         }
+        //public ActionResult Edit([Bind(Include = "ProductID,Name,ProductNumber,ListPrice,Size,Weight")] Product product)
+        //{
+        //    ProductViewModel prod = new ProductViewModel();
+        //    ProductDAL pd = new ProductDAL();
+        //    prod.AllProducts = pd.ListProducts();
+        //    prod.Product = product;
+        //    return PartialView("Index",prod);
+        //}
 
-        // GET: Product/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Product/Create
-        public ActionResult Create()
-        {
-
-            return View();
-            
-        }
-
-        // POST: Product/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Product/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Product/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Product/Delete/5
+        // GET: /Products/Delete
         public ActionResult Delete(int id)
         {
-            return View();
+            ProductDAL product = new ProductDAL();
+            product.Delete(id);
+            return RedirectToAction("Index");
         }
 
-        // POST: Product/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public void Save(String ProductID, String Name, String ProductNumber, String ListPrice, String Size, String Weight)
         {
-            try
+            ProductViewModel product = new ProductViewModel();
+            ProductDAL create = new ProductDAL();
+            Product prod = new Product();
+            if (ProductID != null)
             {
-                // TODO: Add delete logic here
+                prod.ProductID = Convert.ToInt32(ProductID);
+            }
+            prod.Name = Name;
+            prod.ProductNumber = ProductNumber;
+            prod.ListPrice = Convert.ToDecimal(ListPrice);
+            prod.Size = Size;
+            prod.Weight = Weight;
+            create.AddorUpdate(prod);
+            product.Product = prod;
 
-                return RedirectToAction("Index");
-            }
-            catch
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                return View();
+                db.Dispose();
             }
+            base.Dispose(disposing);
         }
     }
 }

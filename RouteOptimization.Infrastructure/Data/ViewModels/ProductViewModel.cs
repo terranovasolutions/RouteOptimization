@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RouteOptimization.Infrastructure.Data.ViewModels
+namespace RouteOptimization.Infrastructure
 {
-    class ProductViewModel
+   public class ProductViewModel
     {
         public Product Product { get; set; }
 
